@@ -1,11 +1,49 @@
 import streamlit as st
 import ollama
 
+st.markdown("""
+<style>
+body {
+    background-color: #0e1117;
+    color: white;
+}
+
+.main {
+    background-color: #0e1117;
+}
+
+h1 {
+    color: #00adb5;
+    text-align: center;
+}
+
+textarea {
+    background-color: #1e1e1e !important;
+    color: white !important;
+    border-radius: 10px !important;
+}
+
+button {
+    background-color: #00adb5 !important;
+    color: white !important;
+    border-radius: 10px !important;
+}
+
+.sidebar .sidebar-content {
+    background-color: #1e1e1e;
+}
+</style>
+""", unsafe_allow_html=True)
 # Page setup
 st.set_page_config(page_title="AI Notes Generator", page_icon="🧠")
 
 # Title
-st.title("🧠 AI Notes Generator")
+st.markdown("""
+<h1>🧠 AI Notes Generator</h1>
+<p style='text-align: center; color: gray;'>
+Turn boring text into smart notes instantly 🚀
+</p>
+""", unsafe_allow_html=True)
 st.markdown("### 📚 Turn long text into smart study notes instantly")
 
 # Sidebar options
@@ -68,7 +106,17 @@ Text:
 
             # Display output
             st.subheader("📌 Generated Notes")
-            st.text_area("Output", output, height=300)
+            st.markdown(f"""
+<div style="
+background-color:#1e1e1e;
+padding:20px;
+border-radius:15px;
+box-shadow:0px 0px 10px rgba(0,0,0,0.5);
+">
+<h3 style="color:#00adb5;">📌 Generated Notes</h3>
+<p>{output}</p>
+</div>
+""", unsafe_allow_html=True)
 
             # Download button
             st.download_button(
